@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ="app">
+<head>
+    <meta charset="UTF-8">
+    <title>document directive</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js" charset="utf-8">
+    </script>
+        <script>
+            var app = angular.module('app',[]);
+            app.controller('foodsController', ['$scope', function ($scope) {
+                $scope.foods = [];
+                $scope.addFood = function(){
+                    $scope.foods.push($scope.food);
+                    $scope.food = "";
+                }
+
+            }]);
+        </script>
+</head>
+<body>
+<div ng-controller='foodsController' class="container">
+    <div class=row">
+        <div class="col-sm-5" style="background-color: lightblue;">
+        <h1>Add Food Here</h1>
+        <form ng-submit="addFood()">
+            <input type="text" ng-model='food'>
+            <input type="submit" value="add me">
+        </form>
+        <p ng-if="food">
+            Currently typing: {{food}}
+        </p>
+    </div>
+
+    <div class="col-sm-5" style="background-color: green;">
+        <h1>List Here</h1>
+        <input placeholder="filter..." type="text" ng-model="foodFilter">
+        <div ng-repeat="food in foods | filter:foodFilter track by $index">
+            <h4>{{food}}</h4>
+        </div>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
