@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Friends</title>
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <script src="assets/app.js" charset="utf-8"></script>
+    <script src="controllers/new_controller.js" charset="utf-8"></script>
+    <script src="controllers/edit_controller.js" charset="utf-8"></script>
+    <script src="factories/friendsFactory.js" charset="utf-8"></script>
 </head>
-<body>
-<h1>ello</h1>
+<body >
+<nav>
+    <a href="/#/new">Create Friends</a>
+    <a href="/#/edit/_id">Edit Friends</a>
+
+</nav>
+<div ng-view="">
+
+</div>
+
 </body>
 </html>

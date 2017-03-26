@@ -2,7 +2,7 @@
  * Created by amarinas on 3/22/17.
  */
 var express = require('express'),
-    mongoose = requrie('mongoose'),
+    mongoose = require('mongoose'),
     bp = require('body-parser'),
     path = require('path'),
     root = __dirname,
@@ -16,8 +16,8 @@ app.use(bp.json());
 //require mongoose
 require(path.join(root, 'server//config/mongoose.js'));
 //require routes config, pass through app
-require(path.join(root, "./server/config/routes.js")(app);
+require(path.join(root, "./server/config/routes.js"))(app);
 
 app.listen( port, function () {
-    console.log( 'server running on port ${ port}');
+    console.log( 'server running on port 8000 in project friends mean');
 });
